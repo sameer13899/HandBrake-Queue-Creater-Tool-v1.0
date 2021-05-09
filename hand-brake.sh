@@ -4,6 +4,7 @@ cat <<EOT >> queue.json
 [
 EOT
 
+IFS=$'\n'
 for i in $(find . -iname '*.mp4' -o -iname '*.m4v')
 do
     sourceFileRelativePath=$(echo $i | cut -c2-)
