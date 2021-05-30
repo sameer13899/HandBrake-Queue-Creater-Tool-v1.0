@@ -1,11 +1,11 @@
-rsync -a -f"+ */" -f"- *.mp4" -f"- *.m4v" input/ output/
+rsync -a -f"+ */" -f"- *.mp4" -f"- *.m4v" -f"- *.mkv" input/ output/
 
 cat <<EOT >> queue.json
 [
 EOT
 
 IFS=$'\n'
-for i in $(find . -iname '*.mp4' -o -iname '*.m4v')
+for i in $(find . -iname '*.mp4' -o -iname '*.m4v' -o -iname '*.mkv')
 do
     sourceFileRelativePath=$(echo $i | cut -c2-)
 
@@ -111,7 +111,7 @@ cat <<EOT >> queue.json
 				]
 			},
 			"Metadata": {
-				"Name": "Coding Blocks"
+				"Name": ""
 			},
 			"PAR": {
 				"Den": 1,
@@ -225,7 +225,7 @@ cat <<EOT >> queue.json
 			"Index": 1,
 			"InterlaceDetected": false,
 			"Metadata": {
-				"Name": "Coding Blocks"
+				"Name": ""
 			},
 			"Name": "1",
 			"Path": "$sourceFileFullPath",
@@ -302,7 +302,7 @@ cat <<EOT >> queue.json
 			"MetaDescription": null,
 			"MetaGenre": null,
 			"MetaLongDescription": null,
-			"MetaName": "Coding Blocks",
+			"MetaName": "",
 			"MetaReleaseDate": null,
 			"Mp4HttpOptimize": false,
 			"Mp4iPodCompatible": false,
@@ -357,13 +357,13 @@ cat <<EOT >> queue.json
 				"DiskFreeCheck": true,
 				"DiskFreeLimit": 2000.0,
 				"EncodeLogLocation": false,
-				"ExportDirectory": "/home/sameer/Downloads",
+				"ExportDirectory": "",
 				"LogLongevity": "immortal",
 				"LoggingLevel": "1",
 				"MinTitleDuration": 10.0,
 				"PreferredLanguage": "und",
 				"RemoveFinishedJobs": true,
-				"SrtDir": "/home/sameer/Videos",
+				"SrtDir": "",
 				"SyncTitleSettings": true,
 				"UseM4v": true,
 				"VideoQualityGranularity": "1",
@@ -435,7 +435,7 @@ cat <<EOT >> queue.json
 			"VideoTurboTwoPass": false,
 			"VideoTwoPass": false,
 			"WhenComplete": "notify",
-			"activity_location": "/home/sameer/.config/ghb/Activity.log.329412",
+			"activity_location": "",
 			"angle": 1,
 			"angle_count": 1,
 			"autoscale": false,
